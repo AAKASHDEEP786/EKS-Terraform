@@ -14,3 +14,6 @@ output "subnet_ids" {
   value = aws_subnet.skyopsx_subnet[*].id
 }
 
+output "cluster_endpoint" {
+  value = aws_eks_cluster.skyopsx.endpoint
+}
