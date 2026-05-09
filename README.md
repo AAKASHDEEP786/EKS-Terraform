@@ -9,7 +9,9 @@
 ├── output.tf
 ├── README.md
 └── deployment
-    └── deployment.yaml
+    ├── namespace.yaml
+    ├── deployment.yaml
+    └── service.yaml
 ```
 
 ---
