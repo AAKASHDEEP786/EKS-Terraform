@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  namespace: amazon-ns
+  name: amazon-app-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: amazon-app
+
+  template:
+    metadata:
+      labels:
+        app: amazon-app
+
+    spec:
+      containers:
+      - name: amazon-app-container
+        image: aakashdevops/amazon:latest
+
+        ports:
+        - containerPort: 80
