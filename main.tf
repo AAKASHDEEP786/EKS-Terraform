@@ -138,6 +138,8 @@ resource "aws_eks_cluster" "skyopsx" {
   name     = "skyopsx-cluster"
   role_arn = aws_iam_role.skyopsx_cluster_role.arn
 
+  version = "1.34"
+
   vpc_config {
     subnet_ids         = aws_subnet.skyopsx_subnet[*].id
     security_group_ids = [aws_security_group.skyopsx_cluster_sg.id]
@@ -192,6 +194,8 @@ resource "aws_eks_node_group" "skyopsx" {
   node_group_name = "skyopsx-node-group"
   node_role_arn   = aws_iam_role.skyopsx_node_group_role.arn
 
+  version = aws_eks_cluster.skyopsx.version
+  
   subnet_ids = aws_subnet.skyopsx_subnet[*].id
 
   scaling_config {
